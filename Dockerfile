@@ -1,6 +1,8 @@
 FROM alpine/node:latest
 ENV PYTHONUNBUFFERED=1
-RUN apk add --update nodejs npm
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+RUN nvm install node
+RUN nvm install-latest-npm
 RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 COPY ./* /app/
 RUN mkdir -p /app/input /app/output
