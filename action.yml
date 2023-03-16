@@ -1,0 +1,22 @@
+# action.yml
+name: 'MD to PDF'
+description: 'Create a pdf from all markdown files in a repo'
+author: 'Daniel Monaghan'
+branding:
+  icon: 'file-text'  
+  color: 'blue'
+inputs:
+  pdf_file_name: 
+    description: 'Filename for the resulting pdf'
+    required: false
+    default: 'result.pdf'
+  pdf_stylesheet:
+    description: 'stylesheet url for the resulting pdf'
+    required: false
+    default: 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    PDF_FILE_NAME : ${{ inputs.pdf_file_name }}
+    PDF_STYLESHEET: ${{ inputs.pdf_stylesheet }}

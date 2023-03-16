@@ -1,0 +1,19 @@
+name: MD to PDF Conversion
+
+on: push
+
+jobs:
+  Convert:
+    runs-on: ubuntu-latest
+    steps:
+
+    # This step is required
+    - name: Cloning repo 
+      uses: actions/checkout@v2
+
+
+    - name: Publish to Sharepoint
+      uses: purplebearddan/ghAction-md2pdf@v1.0.2
+      with:
+      # file name to use as the result
+        pdf_file_name: 'result.pdf'
