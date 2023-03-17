@@ -24,7 +24,7 @@ def filenameCleaner(filename: str):
     """
     cleans the file name to just show the folder structure
     """
-    filename: str = filename.replace('(', '\(').replace(')', '\)').replace(' ', '\ ').replace(f'{directory}/', "")
+    filename: str = filename.replace('(', '\(').replace(')', '\)').replace(f'{directory}/', "").replace('.md', '')
     return filename
 
 def main():
@@ -38,7 +38,7 @@ def main():
 
     for filename in fileFinder(directory, "md"):
         presentableFilename = filenameCleaner(filename)
-        os.system(f'echo \'\n\n<h1> {presentableFilename}</h1>\n\'')
+        os.system(f'echo \'\n\n<em> {presentableFilename}</em>\n\'')
         os.system(f'cat \'{filename}\'')
 
 if __name__ == "__main__":
