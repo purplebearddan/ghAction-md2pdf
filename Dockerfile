@@ -5,7 +5,8 @@ RUN apk add --update curl bash
 
 # install nvm and use nvm to install node and npm (better consistancy in install method)
 # also installs md-to-pdf for actual conversion
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | sh
+RUN export NVM_DIR="$HOME/.nvm"
 RUN nvm install node
 RUN nvm install-latest-npm
 RUN npm install -g md-to-pdf
