@@ -33,7 +33,7 @@ def main():
     courseName: str = os.environ.get("COURSENAME") or "Frontend Development"
     
     # brand the first page
-    os.system(f'echo \'<h1>{companyName}</h1>\n<h2> {courseName}</2>\n\n\'')
+    os.system(f'echo \'<h1 style="color: #63028f">{companyName}</h1>\n<h2> {courseName}</2>\n\n\'')
 
 
     for filename in fileFinder(directory, "md"):
