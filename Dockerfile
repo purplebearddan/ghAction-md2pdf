@@ -28,7 +28,8 @@ RUN mkdir -p "/app/output"
 # same layer as npm install to keep re-chowned files from using up several hundred MBs more space
 RUN groupadd -r simpleuser && useradd -r -g simpleuser -G audio,video simpleuser \
     && mkdir -p /home/simpleuser/Downloads \
-    && chown -R simpleuser:simpleuser /home/simpleuser
+    && chown -R simpleuser:simpleuser /home/simpleuser \
+    && chown -R simpleuser:simpleuser /app
 
 RUN cd "/app"
 # Run everything after as non-privileged user.
