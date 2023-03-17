@@ -13,13 +13,13 @@ RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 
 # install nvm and use nvm to install node and npm (better consistancy in install method)
 # also installs md-to-pdf for actual conversion
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash; \
-    && . $NVM_DIR/nvm.sh \
-    && nvm install $NODE_VERSION \
-    && nvm alias default $NODE_VERSION \
-    && nvm use default \
-    && nvm install-latest-npm \
-    && npm install -g md-to-pdf
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+RUN . $NVM_DIR/nvm.sh
+RUN nvm install $NODE_VERSION
+RUN nvm alias default $NODE_VERSION
+RUN nvm use default
+RUN nvm install-latest-npm
+RUN npm install -g md-to-pdf
 
 
 # copy the action repo to /app/
