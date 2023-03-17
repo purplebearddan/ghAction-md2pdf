@@ -12,6 +12,3 @@ echo "Generating PDF"
 
 # cp $GITHUB_WORKSPACE/* /app/input
 python3 /app/script.py | md-to-pdf --stylesheet "$PDF_STYLESHEET" --launch-options '{ "args": ["--no-sandbox"] }' > $FILE_PATH
-
-echo "Output Folder Listing"
-ls /app/out
