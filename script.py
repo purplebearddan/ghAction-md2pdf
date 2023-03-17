@@ -1,7 +1,7 @@
 # imports
 import os
 
-directory: str = "input" # Directiory for crawling
+directory: str = os.environ.get("GITHUB_WORKSPACE") # Directiory for crawling
 headingColor: str = "#AF2CFF" # Colour of headings
 
 
@@ -29,8 +29,8 @@ def filenameCleaner(filename: str):
 
 def main():
     # import various values for branding
-    companyName: str = os.environ.get("COMPANYNAME")
-    courseName: str = os.environ.get("COURSENAME")
+    companyName: str = os.environ.get("COMPANYNAME") or "Purple Beard Training"
+    courseName: str = os.environ.get("COURSENAME") or "Frontend Development"
     
     # brand the first page
     os.system(f'echo \'<h1>{companyName}</h1>\n<h2> {courseName}</2>\n\n\'')
