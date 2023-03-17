@@ -4,7 +4,7 @@ ENV PYTHONUNBUFFERED=1
 ENV NODE_VERSION 18
 
 # add curl and bash
-RUN apk add --update curl bash
+RUN apk add --update curl util-linux pciutils usbutils coreutils binutils findutils grep iproute2 bash bash-doc bash-completion
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN touch ~/.bashrc
 
