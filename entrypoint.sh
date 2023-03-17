@@ -12,4 +12,4 @@ cp $GITHUB_WORKSPACE/* /app/input
 python3 /app/script.py | md-to-pdf --stylesheet "$PDF_STYLESHEET" > $FILE_PATH
 
 echo "Output Folder Listing"
-ls $FILE_PATH
+ls /app/out
