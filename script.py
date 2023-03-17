@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 # imports
 import os
 from pathlib import Path
@@ -59,8 +61,8 @@ def main():
 
     for filename in fileFinder(directory):
         presentableFilename = filenameCleaner(filename)
-        os.system(f'echo "\n\n<em>{presentableFilename}</em>\n"')
-        os.system(f'cat "{escapeFilename(filename)}"')
+        os.system(f'echo \n\n<em>{escapeFilename(filename)}</em>\n')
+        os.system(f'cat {escapeFilename(filename)}')
 
 if __name__ == "__main__":
     main()
