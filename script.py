@@ -1,22 +1,19 @@
 # imports
 import os
+from pathlib import Path
 
 directory: str = os.environ.get("GITHUB_WORKSPACE") # Directiory for crawling
 headingColor: str = "#AF2CFF" # Colour of headings
 
 
 # methods
-def fileFinder(path: str, extension: str):
+def fileFinder(path: str, extension: str = 'md'):
     """
     Finds files in the specified path with the extension specified
     """
     files = []
-    for rootpath, _, filenames in os.walk(path, True):
-        if filenames:
-            # filenames.sort(reverse=True)
-            for f in filenames:
-                if f.endswith(f".{extension}"):
-                    files.append(f'{rootpath}/{f}')
+    for path in Path('.').rglob(f'*.{extension}'):
+        files.append(path)
     return files
 
 
@@ -44,16 +41,16 @@ def main():
     
     if companyName:
         # brand the first page
-        os.system(f'echo \'<h1 style="color: #63028f">{companyName}</h1>')
+        os.system(f'echo \'<h1 style="color: #63028f">{companyName}</h1>\'')
     if courseName:
         # add the course name
-        os.system('<h2> {courseName}</2>\n\'')
+        os.system(f'echo "<h2> {courseName}</2>\n"')
 
 
-    for filename in fileFinder(directory, "md"):
+    for filename in fileFinder(directory):
         presentableFilename = filenameCleaner(filename)
-        os.system(f'echo \'\n\n<em> {presentableFilename}</em>\n\'')
-        os.system(f'cat \'{filename}\'')
+        os.system(f'echo "\n\n<em> {presentableFilename}</em>\n"')
+        os.system(f'cat "{filename}"')
 
 if __name__ == "__main__":
     main()
