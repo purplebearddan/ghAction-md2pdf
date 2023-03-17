@@ -36,11 +36,11 @@ def filenameCleaner(filename: str):
     # filename = filename.replace("(", "\(")
     # filename = filename.replace(")", "\)")
     filename = escapeFilename(filename)
-    # gh action input directory
-    filename = filename.replace(f'{directory}/', "")
+    # # gh action input directory
+    # filename = filename.replace(f'{directory}/', "")
     
-    # filename extension
-    filename = filename.replace('.md', '')
+    # # filename extension
+    # filename = filename.replace('.md', '')
 
     return filename
 
@@ -56,13 +56,13 @@ def main():
         os.system(f'echo \'<h1 style="color: #63028f">{companyName}</h1>\'')
     if courseName:
         # add the course name
-        os.system(f'echo "<h2> {courseName}</2>\n"')
+        os.system(f'echo "<h2>{courseName}</2>\n"')
 
 
     for filename in fileFinder(directory):
-        presentableFilename = filenameCleaner(filename)
-        os.system(f'echo \n\n<em>{escapeFilename(filename)}</em>\n')
-        os.system(f'cat {escapeFilename(filename)}')
+        filename = filenameCleaner(filename)
+        os.system(f'echo \n\n<em>{filename}</em>\n')
+        os.system(f'cat {filename}')
 
 if __name__ == "__main__":
     main()
