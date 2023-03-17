@@ -24,16 +24,11 @@ COPY "./*" "/app/"
 # make the output folder and cd into app
 RUN mkdir -p "/app/output"
 
-RUN npm init -y &&  \
-    npm i puppeteer \
-    # Add user so we don't need --no-sandbox.
-    # same layer as npm install to keep re-chowned files from using up several hundred MBs more space
-    && groupadd -r simpleuser && useradd -r -g simpleuser -G audio,video simpleuser \
+# Add user so we don't need --no-sandbox.
+# same layer as npm install to keep re-chowned files from using up several hundred MBs more space
+RUN groupadd -r simpleuser && useradd -r -g simpleuser -G audio,video simpleuser \
     && mkdir -p /home/simpleuser/Downloads \
-    && chown -R simpleuser:simpleuser /home/simpleuser \
-    && chown -R simpleuser:simpleuser /node_modules \
-    && chown -R simpleuser:simpleuser /package.json \
-    && chown -R simpleuser:simpleuser /package-lock.json
+    && chown -R simpleuser:simpleuser /home/simpleuser
 
 RUN cd "/app"
 # Run everything after as non-privileged user.
