@@ -17,7 +17,14 @@ def fileFinder(path: str, extension: str = 'md'):
     files = []
     for path in Path('.').rglob(f'*.{extension}'):
         files.append(path)
-    return sorted(files)
+    
+    if files:
+        files = sorted(files)
+        mainReadme = files[-1]
+        files.pop()
+        files.insert(0, mainReadme)
+    
+    return files
 
 def main():
     # import various values for branding
