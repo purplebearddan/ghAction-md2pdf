@@ -2,12 +2,17 @@ FROM alpine/node:latest
 
 # add curl
 RUN apk add --update curl bash
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # install nvm and use nvm to install node and npm (better consistancy in install method)
 # also installs md-to-pdf for actual conversion
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | sh
-RUN export NVM_DIR="$HOME/.nvm"
-RUN nvm install node
+ENV NODE_VERSION 18
+ENV NVM_DIR "$HOME/.nvm"
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash; \
+    && . $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
 RUN nvm install-latest-npm
 RUN npm install -g md-to-pdf
 
