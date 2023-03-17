@@ -1,7 +1,7 @@
 FROM alpine/node:latest
 
 # add curl
-RUN apk add --update curl
+RUN apk add --update curl bash
 
 # install nvm and use nvm to install node and npm (better consistancy in install method)
 # also installs md-to-pdf for actual conversion
