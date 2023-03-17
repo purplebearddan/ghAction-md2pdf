@@ -17,7 +17,7 @@ def fileFinder(path: str, extension: str = 'md'):
     files = []
     for path in Path('.').rglob(f'*.{extension}'):
         files.append(path)
-    return sorted(files, key=lambda x:float(re.findall("(\d+)",x)[0]))
+    return sorted(files)
 
 def main():
     # import various values for branding
