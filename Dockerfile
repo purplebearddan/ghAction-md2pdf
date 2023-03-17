@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED=1
 # RUN apk add --update curl util-linux pciutils usbutils coreutils binutils findutils grep iproute2 bash bash-doc bash-completion nodejs
 # RUN apk add --update npm
 RUN apt update
-RUN apt install -y bash build-essential
+RUN apt install -y bash build-essential curl
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN curl -fsSL https://deb.nodesource.com/setup_19.x | bash - && apt-get install -y nodejs
 # RUN touch ~/.bashrc
