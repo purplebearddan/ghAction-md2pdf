@@ -24,7 +24,7 @@ def filenameCleaner(filename: str):
     """
     cleans the file name to just show the folder structure
     """
-    filename: str = filename.replace('(', '\(').replace(')', '\)').replace(f'{directory}/', "")
+    filename: str = filename.replace('(', '\(').replace(')', '\)').replace(' ', '\ ').replace(f'{directory}/', "")
     return filename
 
 def main():
