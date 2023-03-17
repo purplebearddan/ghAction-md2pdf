@@ -1,9 +1,10 @@
 FROM ubuntu:latest
 
 RUN apt update
-RUN apt install -y bash build-essential curl
+RUN apt install -y bash build-essential curl gcc make 
+RUN apt install libgobject
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-RUN curl -fsSL https://deb.nodesource.com/setup_19.x | bash - && apt-get install -y nodejs
+RUN curl -fsSL https://deb.nodesource.com/setup_19.x | bash - && apt install -y nodejs
 RUN apt install python3
 
 # copy the action repo to /app/
