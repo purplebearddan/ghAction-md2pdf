@@ -1,30 +1,10 @@
 FROM ubuntu:latest
 
-ENV PYTHONUNBUFFERED=1
-# ENV NODE_VERSION=18
-
-# add curl and bash
-# RUN apk add --update curl util-linux pciutils usbutils coreutils binutils findutils grep iproute2 bash bash-doc bash-completion nodejs
-# RUN apk add --update npm
 RUN apt update
 RUN apt install -y bash build-essential curl
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN curl -fsSL https://deb.nodesource.com/setup_19.x | bash - && apt-get install -y nodejs
-# RUN touch ~/.bashrc
-
-# install python3 for file processing and cat-ing
-# RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 RUN apt install python3
-
-# install nvm and use nvm to install node and npm (better consistancy in install method)
-# also installs md-to-pdf for actual conversion
-# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-# RUN source "~/.bashrc"
-# RUN nvm install $NODE_VERSION
-# RUN nvm alias default $NODE_VERSION
-# RUN nvm use default
-# RUN nvm install-latest-npm
-# ENV NVM_DIR="$HOME/.nvm"
 RUN npm install -g md-to-pdf
 
 

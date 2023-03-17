@@ -1,9 +1,9 @@
 #!/bin/sh -l
 
-export FILE_PATH="/out/$PDF_FILE_NAME"
+export FILE_PATH="/app/out/$PDF_FILE_NAME"
 
 echo "creating output folder"
-mkdir -p /app/output
+mkdir -p /app/out
 
 # working
 echo "Generating PDF"
