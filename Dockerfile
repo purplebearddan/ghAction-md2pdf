@@ -1,12 +1,10 @@
 FROM ubuntu:latest
 
 RUN apt update
-RUN apt install -y bash build-essential curl
+RUN apt install -y bash build-essential curl cat
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN curl -fsSL https://deb.nodesource.com/setup_19.x | bash - && apt-get install -y nodejs
 RUN apt install python3
-RUN npm install -g md-to-pdf
-
 
 # copy the action repo to /app/
 COPY "./*" "/app/"

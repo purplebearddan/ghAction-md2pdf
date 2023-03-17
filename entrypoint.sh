@@ -1,14 +1,14 @@
 #!/bin/sh -l
 
-export FILE_PATH="/app/out/$PDF_FILE_NAME"
+export FILE_PATH="$GITHUB_WORKSPACE/out/$PDF_FILE_NAME"
 
 echo "creating output folder"
-mkdir -p /app/input /app/out
+mkdir -p "$GITHUB_WORKSPACE/out"
 
 # working
 echo "Generating PDF"
 
-cp $GITHUB_WORKSPACE/* /app/input
+# cp $GITHUB_WORKSPACE/* /app/input
 python3 /app/script.py | md-to-pdf --stylesheet "$PDF_STYLESHEET" > $FILE_PATH
 
 echo "Output Folder Listing"
