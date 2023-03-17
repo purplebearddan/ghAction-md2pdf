@@ -60,9 +60,9 @@ def main():
 
 
     for filename in fileFinder(directory):
-        filename = filenameCleaner(filename)
-        os.system(f'echo \n\n<em>{filename}</em>\n')
-        os.system(f'cat {filename}')
+        # filename = filenameCleaner(filename)
+        os.system(f'echo "\n\n<em>{filename}</em>\n"')
+        os.system(f'cat "{filename}"')
 
 if __name__ == "__main__":
     main()
