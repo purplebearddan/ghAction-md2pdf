@@ -12,8 +12,8 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | b
     && . $NVM_DIR/nvm.sh \
     && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
-    && nvm use default
-RUN nvm install-latest-npm
+    && nvm use default \
+    && nvm install-latest-npm
 RUN npm install -g md-to-pdf
 
 # install python3 for file processing and cat-ing
