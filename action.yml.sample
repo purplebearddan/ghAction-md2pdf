@@ -11,9 +11,10 @@ jobs:
     - name: Clone repo 
       uses: actions/checkout@v2
 
-
+    # exports $FILE_PATH to $GITHUB_ENV for use in another step
     - name: Generate PDF from Markdown Files
       uses: purplebearddan/ghAction-md2pdf@v1.0.2
       with:
-      # file name to use as the result
         pdf_file_name: 'result.pdf'
+    
+    # Your next job here
