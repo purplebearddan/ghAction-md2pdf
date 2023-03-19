@@ -8,11 +8,11 @@ jobs:
     steps:
 
     # This step is required
-    - name: Cloning repo 
+    - name: Clone repo 
       uses: actions/checkout@v2
 
 
-    - name: Publish to Sharepoint
+    - name: Generate PDF from Markdown Files
       uses: purplebearddan/ghAction-md2pdf@v1.0.2
       with:
       # file name to use as the result
