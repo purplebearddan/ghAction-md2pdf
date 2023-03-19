@@ -20,7 +20,7 @@ jobs:
 
     # exports $FILE_PATH to $GITHUB_ENV for use in another step
     - name: Generate PDF from Markdown Files
-      uses: purplebearddan/ghAction-md2pdf@v1.2.2
+      uses: purplebearddan/ghAction-md2pdf@v1
       with:
         pdf_file_name: 'result.pdf'
     
