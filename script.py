@@ -31,12 +31,8 @@ def main():
     companyName: str = os.environ.get("COMPANYNAME") or "Purple Beard Training"
     courseName: str = os.environ.get("COURSENAME") or "Frontend Development"
 
-    if companyName:
-        # brand the first page
-        os.system(f'echo \'<section><h1 style="color: #63028f">{companyName}</h1>\'')
-    if courseName:
-        # add the course name
-        os.system(f'echo "<h2>{courseName}</h2>\n"')
+    os.system(f'echo \'<section><h1 style="color: #63028f">{companyName}</h1>\'')
+    os.system(f'echo "<h2>{courseName}</h2>\n"')
 
     os.system(f'echo "<h3>Repo: [$GITHUB_SERVER_URL/$GITHUB_REPOSITORY]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY)</h3></section>\n"')
     for filename in fileFinder(directory):
