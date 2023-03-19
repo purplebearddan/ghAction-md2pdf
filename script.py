@@ -34,7 +34,7 @@ def main():
     os.system(f'echo \'<section><h1 style="color: #63028f">{companyName}</h1>\'')
     os.system(f'echo "<h2>{courseName}</h2>\n"')
 
-    os.system(f'echo "<h3>Repo: [$GITHUB_SERVER_URL/$GITHUB_REPOSITORY]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY)</h3></section>\n"')
+    os.system(f'echo "<h3>Repo: <a href=\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY\">$GITHUB_SERVER_URL/$GITHUB_REPOSITORY</a></h3></section>\n"')
     for filename in fileFinder(directory):
         # filename = filenameCleaner(filename)
         os.system(f'echo "\n<em>{filename}</em>\n"')
