@@ -36,9 +36,9 @@ def main():
         os.system(f'echo \'<h1 style="color: #63028f">{companyName}</h1>\'')
     if courseName:
         # add the course name
-        os.system(f'echo "<h2>{courseName}</h2>\n"')
+        os.system(f'echo "<h3>Repo: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY</h3>\n"')
 
-
+    os.system(f'echo "<h3>$</h3>\n"')
     for filename in fileFinder(directory):
         # filename = filenameCleaner(filename)
         os.system(f'echo "\n<em>{filename}</em>\n"')
