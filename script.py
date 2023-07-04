@@ -3,10 +3,9 @@
 # imports
 import os
 from pathlib import Path
-import re
 
 directory: str = os.environ.get("GITHUB_WORKSPACE") # Directiory for crawling
-headingColor: str = "#AF2CFF" # Colour of headings
+headingColor: str = os.environ.get("BRANDCOLOR") or "#63028f" # Colour of headings
 
 
 # methods
@@ -31,7 +30,7 @@ def main():
     companyName: str = os.environ.get("COMPANYNAME") or "Purple Beard Training"
     courseName: str = os.environ.get("COURSENAME") or "Frontend Development"
 
-    os.system(f'echo \'<section><h1 style="color: #63028f">{companyName}</h1>\'')
+    os.system(f'echo \'<section><h1 style="color: {headingColor}">{companyName}</h1>\'')
     os.system(f'echo "<h2>{courseName}</h2>\n"')
 
     os.system(f'echo "<h3>Repo: <a href=\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY\">$GITHUB_SERVER_URL/$GITHUB_REPOSITORY</a></h3></section>\n"')
